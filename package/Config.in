@@ -1384,6 +1384,7 @@ menu "Database"
 	source "package/rocksdb/Config.in"
 	source "package/sqlcipher/Config.in"
 	source "package/sqlite/Config.in"
+	source "package/ssdb/Config.in"
 	source "package/timescaledb/Config.in"
 	source "package/unixodbc/Config.in"
 endmenu

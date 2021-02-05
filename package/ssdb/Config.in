@@ -1,0 +1,10 @@
+config BR2_PACKAGE_SSDB
+        bool "ssdb"
+        help
+          SSDB is a high performace key-value(key-string, key-zset, key-hashmap) NoSQL database, 
+          an alternative to Redis.
+
+          https://github.com/ideawu/ssdb
+
+comment "SSDB - A Redis compatible NoSQL database stored on disk"
+        
