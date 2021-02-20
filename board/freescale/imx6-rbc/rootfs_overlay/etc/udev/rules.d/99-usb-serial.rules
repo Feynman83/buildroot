@@ -1,0 +1,27 @@
+# /etc/udev/rules.d/99-usb-serial.rules
+# udevadm info --attribute-walk -n /dev/ttyUSB0  |grep serial (can be used to get serial number)
+# udevadm control --reload-rules (reload rules)
+# udevadm trigger (re-add all devices)
+# see https://wiki.archlinux.org/index.php/Bus_pirate
+# for some reason, ATTRS{bInterfaceNumber}=="00" is not working, hence the use of ENV{}
+
+SUBSYSTEM=="tty",  ATTRS{serial}=="Xbrother", SYMLINK+="$attr{product}"
+
+KERNEL=="ttymxc0", SUBSYSTEM=="tty", SYMLINK+="ttyS0"
+KERNEL=="ttymxc1", SUBSYSTEM=="tty", SYMLINK+="ttyS1"
+KERNEL=="ttymxc2", SUBSYSTEM=="tty", SYMLINK+="ttyS2"
+KERNEL=="ttymxc3", SUBSYSTEM=="tty", SYMLINK+="ttyS3"
+KERNEL=="ttymxc4", SUBSYSTEM=="tty", SYMLINK+="ttyS4"
+
+SUBSYSTEM=="tty",  KERNELS=="2-1.2:1.6",SYMLINK+="ttyS5"
+SUBSYSTEM=="tty",  KERNELS=="2-1.2:1.0",SYMLINK+="ttyS6"
+SUBSYSTEM=="tty",  KERNELS=="2-1.2:1.4",SYMLINK+="ttyS7"
+SUBSYSTEM=="tty",  KERNELS=="2-1.2:1.2",SYMLINK+="ttyS8"
+SUBSYSTEM=="tty",  KERNELS=="2-1.1:1.0",SYMLINK+="ttyS9"
+SUBSYSTEM=="tty",  KERNELS=="2-1.1:1.2",SYMLINK+="ttyS10"
+SUBSYSTEM=="tty",  KERNELS=="2-1.1:1.4",SYMLINK+="ttyS11"
+SUBSYSTEM=="tty",  KERNELS=="2-1.1:1.6",SYMLINK+="ttyS12"
+SUBSYSTEM=="tty",  KERNELS=="1-1.1:1.0",SYMLINK+="ttyS13"
+SUBSYSTEM=="tty",  KERNELS=="1-1.1:1.2",SYMLINK+="ttyS14"
+SUBSYSTEM=="tty",  KERNELS=="1-1.1:1.4",SYMLINK+="ttyS15"
+SUBSYSTEM=="tty",  KERNELS=="1-1.1:1.6",SYMLINK+="ttyS16"
