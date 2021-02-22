@@ -1,4 +1,4 @@
-KERNEL!="mmcblk*", GOTO="mnt_by_label_auto_mount_end"
+KERNEL!="mmcblk1*", GOTO="mnt_by_label_auto_mount_end"
 SUBSYSTEM!="block",GOTO="mnt_by_label_auto_mount_end"
 IMPORT{program}="/sbin/blkid -o udev -p %N"
 ENV{ID_FS_TYPE}=="", GOTO="mnt_by_label_auto_mount_end"
