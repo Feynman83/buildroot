@@ -25,3 +25,8 @@ SUBSYSTEM=="tty",  KERNELS=="1-1.1:1.0",SYMLINK+="ttyS13"
 SUBSYSTEM=="tty",  KERNELS=="1-1.1:1.2",SYMLINK+="ttyS14"
 SUBSYSTEM=="tty",  KERNELS=="1-1.1:1.4",SYMLINK+="ttyS15"
 SUBSYSTEM=="tty",  KERNELS=="1-1.1:1.6",SYMLINK+="ttyS16"
+
+SUBSYSTEM=="tty",  KERNELS=="2-1.4:1.0",SYMLINK+="ttyModem0"
+SUBSYSTEM=="tty",  KERNELS=="2-1.4:1.1",SYMLINK+="ttyModem1"
+SUBSYSTEM=="tty",  KERNELS=="2-1.4:1.2",SYMLINK+="ttyModem2"
+SUBSYSTEM=="tty",  KERNELS=="2-1.4:1.3",SYMLINK+="ttyModem3"
