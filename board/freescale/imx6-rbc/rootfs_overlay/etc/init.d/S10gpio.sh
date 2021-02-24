@@ -6,7 +6,7 @@ IO_CFGS=$IO_CFGS" 500-in 501-in 502-in 503-in 504-in 505-in 506-in 507-in"
 IO_CFGS=$IO_CFGS" 508-out 509-out 510-out 511-out"
 # AI switch gpio
 IO_CFGS=$IO_CFGS" 135-out 136-out 192-out 196-out 127-out 133-out 134-out 197-out"
-IO_CFGS=$IO_CFGS" 1-out 200-out 0-out 194-out 115-out 113-out 112-out 114-out"
+IO_CFGS=$IO_CFGS" 1-out 200-out 5-out 194-out 115-out 113-out 112-out 114-out"
 IO_CFGS=$IO_CFGS" 21-out 111-out 109-out 107-out 106-out 108-out 110-out 17-out"
 GpioExport() {
 
