@@ -3,7 +3,7 @@
 IO_CFGS="488-out-do1 489-out-do2 490-out-do3 491-out-do4"
 IO_CFGS=$IO_CFGS" 492-in-di1 493-in-di2 494-in-di3 495-in-di4 496-in-di5 497-in-di6 498-in-di7 499-in-di8"
 # IO_CFGS=$IO_CFGS" 500-in-di9 501-in-di10 502-in-di11 503-in-di12 504-in-di13 505-in-di14 506-in-di15 507-in-di16"
-IO_CFGS=$IO_CFGS" 503-in-di9 507-in-di10 502-in-di11 501-in-di12 506-in-di13 500-in-di14 505-in-di15 504-in-di16"
+IO_CFGS=$IO_CFGS" 505-in-di9 503-in-di10 502-in-di11 500-in-di12 507-in-di13 506-in-di14 504-in-di15 501-in-di16"
 IO_CFGS=$IO_CFGS" 511-out-uart1_sw 509-out-uart2_sw 508-out-uart3_sw 510-out-uart4_sw"
 # AI switch gpio
 IO_CFGS=$IO_CFGS" 135-out-av1_sw 136-out-av2_sw 192-out-av3_sw 196-out-av4_sw 127-out-av5_sw 133-out-av6_sw 134-out-av7_sw 197-out-av8_sw"
