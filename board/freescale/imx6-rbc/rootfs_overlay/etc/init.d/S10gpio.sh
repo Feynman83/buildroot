@@ -20,7 +20,15 @@ GpioExport() {
         IO_DIR=$(echo $CFG | cut -d"-" -f2)
         IO_ALIAS=$(echo $CFG | cut -d"-" -f3)
         echo $IO_NUM >/sys/class/gpio/export
-        echo $IO_DIR >/sys/class/gpio/gpio${IO_NUM}/direction
+        if [ $IO_DIR == "out" ];then
+            IO_VAL=$(cat /sys/class/gpio/gpio${IO_NUM}/value)
+            if [ $IO_VAL == "1" ] ;then
+                echo "high" >/sys/class/gpio/gpio${IO_NUM}/direction
+            else
+                echo "low" >/sys/class/gpio/gpio${IO_NUM}/direction
+            fi
+        fi
+        # echo $IO_DIR >/sys/class/gpio/gpio${IO_NUM}/direction
         ln -s /sys/class/gpio/gpio${IO_NUM} /dev/gpio/${IO_ALIAS}
     done
 
