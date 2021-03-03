@@ -12,6 +12,9 @@ IO_CFGS=$IO_CFGS" 21-out-av17_sw 111-out-av18_sw 109-out-av19_sw 107-out-av20_sw
 #bat switch
 IO_CFGS=$IO_CFGS" 198-out-bat_sw"
 
+#12dc
+IO_CFGS=$IO_CFGS" 121-high-dc12v_1 122-high-dc12v_2"
+
 GpioExport() {
 
     mkdir -p /dev/gpio
@@ -27,6 +30,8 @@ GpioExport() {
             else
                 echo "low" >/sys/class/gpio/gpio${IO_NUM}/direction
             fi
+        else 
+            echo $IO_DIR >/sys/class/gpio/gpio${IO_NUM}/direction
         fi
         # echo $IO_DIR >/sys/class/gpio/gpio${IO_NUM}/direction
         ln -s /sys/class/gpio/gpio${IO_NUM} /dev/gpio/${IO_ALIAS}
