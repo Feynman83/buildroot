@@ -1,0 +1,14 @@
+config BR2_PACKAGE_TINYC
+	bool "tiny c compile"
+	depends on !BR2_STATIC_LIBS # tinc requires libdl
+	depends on BR2_USE_MMU # fork()
+	
+	help
+	  tinc is a Virtual Private Network (VPN) daemon that uses
+	  tunnelling and encryption to create a secure private network
+	  between hosts on the Internet.
+
+	  http://www.tinc-vpn.org/
+
+comment "tinc needs a toolchain w/ dynamic library"
+	depends on BR2_STATIC_LIBS
