@@ -21,4 +21,12 @@ define TINYC_BUILD_CMDS
   $(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D) tcc
 endef
 
+define TINYC_INSTALL_TARGET_CMDS
+	$(INSTALL) -m 0755 -D $(@D)/tcc  $(TARGET_DIR)/usr/bin
+  $(INSTALL) -d $(TARGET_DIR)/usr/lib/arm-linux-gnueabi/tcc/include/
+  $(INSTALL) -m 0644 -D $(@D)/include/*  $(TARGET_DIR)/usr/lib/arm-linux-gnueabi/tcc/include/
+  $(INSTALL) -m 0644 -D $(@D)/tcclib.h  $(TARGET_DIR)/usr/lib/arm-linux-gnueabi/tcc/include/
+  $(INSTALL) -m 0644 -D $(@D)/libtcc.a  $(TARGET_DIR)/usr/lib/arm-linux-gnueabi/tcc/
+endef
+
 $(eval $(autotools-package))
