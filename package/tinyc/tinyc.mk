@@ -26,7 +26,7 @@ define TINYC_INSTALL_TARGET_CMDS
   $(INSTALL) -d $(TARGET_DIR)/usr/lib/arm-linux-gnueabi/tcc/include/
   $(INSTALL) -m 0644 -D $(@D)/include/*  $(TARGET_DIR)/usr/lib/arm-linux-gnueabi/tcc/include/
   $(INSTALL) -m 0644 -D $(@D)/tcclib.h  $(TARGET_DIR)/usr/lib/arm-linux-gnueabi/tcc/include/
-  $(INSTALL) -m 0644 -D $(@D)/libtcc.a  $(TARGET_DIR)/usr/lib/arm-linux-gnueabi/tcc/
+  $(INSTALL) -m 0644 -D $(@D)/libtcc.a  $(TARGET_DIR)/usr/lib/arm-linux-gnueabi/tcc/libtcc1.a
 endef
 
 $(eval $(autotools-package))
