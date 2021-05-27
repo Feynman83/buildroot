@@ -12,3 +12,6 @@ mkfs.ubifs -F -x lzo -m 2KiB -e 124KiB -c 560 -o ${DATA_UBIFS_FILE} -d /tmp/nuc9
 
 sed -e 's@BR2_DATA_UBI_PATH@'"$DATA_UBIFS_FILE"'@' ${BASE_DIR}/../fs/ubi/ubinize_data.cfg >> ${BASE_DIR}/images/ubinize_data.cfg
 ubinize -o ${BASE_DIR}/images/data.ubi -m 2KiB -p 128KiB  -s 2048 ${BASE_DIR}/images/ubinize_data.cfg
+
+
+mkenvimage -s 0x10000  -o ${BASE_DIR}/images/env.bin ${BASE_DIR}/../env.txt
