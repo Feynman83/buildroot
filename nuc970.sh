@@ -3,7 +3,7 @@
 chmod 600 ${TARGET_DIR}/etc/ssh/ssh_host*
 chmod 600 ${TARGET_DIR}/etc/profile
 chmod 600 ${TARGET_DIR}/etc/hostname
-
+chmod 744 ${TARGET_DIR}/sbin/blkid
 
 
 export DATA_UBIFS_FILE=${BASE_DIR}/images/data.ubifs
