@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if [ -f /dev/fb0 ]; then
+if [ -c /dev/fb0 ]; then
     echo "XBM" >/etc/hostname
-elif [ -f /dev/i2c-0 ]; then
+elif [ -c /dev/i2c-0 ]; then
     echo "RBC02" >/etc/hostname
 else
     echo "XDUD-G3000" >/etc/hostname
