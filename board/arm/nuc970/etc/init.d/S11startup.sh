@@ -1,11 +1,17 @@
 #!/bin/bash
 
 if [ -c /dev/fb0 ]; then
-    echo "XBM" >/etc/hostname
+    echo "XBM" >/etc/hostname\
+    rm -rf /boot/zImage-A02
+    rm -rf /boot/zImage-C02
 elif [ -c /dev/i2c-0 ]; then
     echo "RBC02" >/etc/hostname
+    rm -rf /boot/zImage-XBM
+    rm -rf /boot/zImage-A02
 else
     echo "XDUD-G3000" >/etc/hostname
+    rm -rf /boot/zImage-XBM
+    rm -rf /boot/zImage-C02
 fi
 
 umount /home/xbrother
