@@ -1,0 +1,95 @@
+#!/bin/bash
+#
+# gpio        Export gpio.
+#
+
+if [ -c /dev/fb0 ]; then
+      portnum=(
+            206 204 202 200 109 108
+            192 205 203 201 97 98 226 173 193
+      )
+      portdir=(
+            "in" "in" "in" "in" "in" "in"
+            "high" "high" "high" "high" "low" "low" "low" "high" "high"
+      )
+      portname=(
+            "xdi01" "xdi02" "xdi03" "xdi04" "di00" "di01"
+            "xdo01" "xdo02" "xdo03" "xdo04" "do_oe" "do_le" "do01" "alarm" "e2wp"
+      )
+elif [ -c /dev/i2c-0 ]; then
+      portnum=(
+            226 227 106 107 104 105 14 15 13 12 10 11
+            198 199 200 201
+            202 203 204 205 174 173
+            37 38 42 43 46 47
+            230 206
+      )
+      portdir=(
+            "in" "in" "in" "in" "in" "in" "in" "in" "in" "in" "in" "in"
+            "in" "in" "in" "in"
+            "low" "low" "low" "low" "low" "low"
+            "high" "high" "low" "low" "low" "low"
+            "high" "high"
+      )
+      portname=(
+            "di01" "di02" "di03" "di04" "di05" "di06" "di07" "di08" "di09" "di10" "di11" "di12"
+            "do01_out" "do02_out" "do03_out" "do04_out"
+            "do01" "do02" "do03" "do04" "do_oe" "do_le"
+            "sw_uart1" "sw_uart2" "sw_ai01" "sw_ai02" "sw_ai03" "sw_ai04"
+            "alarm" "e2wp"
+      )
+else
+      portnum=(
+            36 37 38 39 266 264 47 46
+            10 205 204 203 202 270 271 263 265 267 193
+      )
+      portdir=(
+            "in" "in" "in" "in" "in" "in" "in" "in"
+            "high" "low" "low" "high" "high" "high" "high" "high" "high" "high" "high"
+      )
+      portname=(
+            "di01" "di02" "di03" "di04" "ack1" "ack2" "pwr1" "pwr2"
+            "alarm" "do_le" "do_oe" "do1" "do2" "sw_uart1" "sw_uart2" "rst1" "rst2" "pwr_zig" "e2wp"
+
+      )
+fi
+
+start() {
+
+      mkdir -p /dev/gpio
+      for ((i = 0; i < ${#portnum[@]}; i++)); do
+            echo ${portnum[i]} >/sys/class/gpio/export
+            echo ${portdir[i]} >/sys/class/gpio/gpio${portnum[i]}/direction
+            ln -s /sys/class/gpio/gpio${portnum[i]} /dev/gpio/${portname[i]}
+      done
+
+}
+
+stop() {
+      rm -rf /dev/gpio
+      for ((i = 0; i < ${#portnum[@]}; i++)); do
+            echo ${portnum[i]} >/sys/class/gpio/unexport
+      done
+}
+restart() {
+      stop
+      start
+}
+case "$1" in
+start)
+      start
+      echo $aa
+      ;;
+stop)
+      stop
+      ;;
+restart | reload)
+      restart
+      ;;
+*)
+      echo "Usage: $0 {start|stop|restart}"
+      exit 1
+      ;;
+esac
+
+exit $?
