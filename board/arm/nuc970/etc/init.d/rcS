@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ubiattach /dev/ubi_ctrl -m 3
-mount -t ubifs ubi1:data /home/xbrother
+mount -t ubifs ubi1:data /home
 
 # Start all init scripts in /etc/init.d
 # executing them in numerical order.
