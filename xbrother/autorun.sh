@@ -38,16 +38,6 @@ else
         nandwrite -p -s 0x100000 /dev/mtd0 ${UDIR}/u-boot.bin
     fi
 
-    if [ -c /dev/i2c-0 ]; then
-        echo "burn zImage..."
-        flash_erase /dev/mtd1 0 0
-        nandwrite -p /dev/mtd1 ${UDIR}/970uimage-C02
-    else
-        echo "burn zImage..."
-        flash_erase /dev/mtd1 0 0
-        nandwrite -p /dev/mtd1 ${UDIR}/970uimage-A02
-    fi
-
     echo 200 >/sys/class/leds/heartbeat/delay_on
     echo 200 >/sys/class/leds/heartbeat/delay_off
 
