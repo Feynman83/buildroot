@@ -36,7 +36,11 @@ fi
 
 
 ln -s /home/xbrother /xbrother
-cp /home/Legion /tmp/
+if [ -f /home/Legion ];then
+    cp /home/Legion /boot/
+    sync
+fi
+
 umount /home
 sleep 1
 ubidetach -m 3
@@ -60,8 +64,8 @@ fi
 mkdir -p /home/xbrother/app
 mkdir -p /home/xbrother/data
 mkdir -p /home/legion
-cp /tmp/Legion /home/legion/
-
+cp /boot/Legion /home/legion/
+rm -rf /boot/Legion
 rm -rf /etc/init.d/S11startup.sh
 
 sync
