@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+# Start/stop legion
+#
+
+DAEMON=/home/legion/Legion
+
+[ -f $DAEMON ] || exit 0
+
+case "$1" in
+  start)
+	echo "Starting legion..."
+	$DAEMON >/dev/null 2>&1 &
+	;;
+  stop)
+	echo "Stopping legion..."
+	;;
+  reload|force-reload)
+	echo "Reloading legion configuration..."
+	;;
+  restart)
+	"$0" stop
+	sleep 1 # Prevent race condition: ensure dhcpcd stops before start.
+	"$0" start
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart|reload|force-reload}"
+	exit 1
+esac

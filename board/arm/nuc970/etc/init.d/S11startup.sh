@@ -36,7 +36,7 @@ fi
 
 
 ln -s /home/xbrother /xbrother
-
+cp /home/Legion /tmp/
 umount /home
 sleep 1
 ubidetach -m 3
@@ -60,6 +60,7 @@ fi
 mkdir -p /home/xbrother/app
 mkdir -p /home/xbrother/data
 mkdir -p /home/legion
+cp /tmp/Legion /home/legion/
 
 rm -rf /etc/init.d/S11startup.sh
 

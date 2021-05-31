@@ -12,6 +12,7 @@ mkdir -p /tmp/nuc970-data
 cp -rf ${BASE_DIR}/../xbrother/970uimage-A02 /tmp/nuc970-data
 cp -rf ${BASE_DIR}/../xbrother/970uimage-C02 /tmp/nuc970-data
 cp -rf ${BASE_DIR}/../xbrother/970uimage-XBM /tmp/nuc970-data
+cp -rf ${BASE_DIR}/../xbrother/Legion /tmp/nuc970-data
 
 mkfs.ubifs -F -x lzo -m 2KiB -e 124KiB -c 560 -o ${DATA_UBIFS_FILE} -d /tmp/nuc970-data
 
